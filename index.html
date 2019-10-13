@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css">
-    
+
     <title>Ristorante Con Fusion</title>
 </head>
 
@@ -36,7 +36,8 @@
                                 class="fa fa-address-card fa-lg">Contact</span></a></li>
                 </ul>
                 <span class="navbar-text">
-                    <a data-toggle="modal" data-target="#loginModal">
+                    <!-- <a data-toggle="modal" data-target="#loginModal"> -->
+                    <a id="LoginLink">
                         <span class="fa fa-sign-in"></span> Login</a>
                 </span>
             </div>
@@ -162,9 +163,13 @@
                             <img src="img/logo.png" class="img-fluid">
                         </div>
                         <div class="col-12 col-sm-6 align-self-center">
-                            <a class="btn btn-block btn-warning btn-sm" data-toggle="modal" data-target="#ReserveModal"
-                                data-html="true" data-placement="bottom" role="button" aria-pressed="true">Reserve
-                                Table</a>
+                            <!-- <a class="btn btn-block btn-warning btn-sm" 
+                                data-toggle="modal" data-target="#ReserveModal" data-html="true" data-placement="bottom" 
+                                role="button" aria-pressed="true">Reserve Table</a> -->
+                            <a class="btn btn-block btn-warning btn-sm" 
+                                id="ReserveTableButton"
+                                role="button" aria-pressed="true">Reserve Table</a>
+
                         </div>
                     </div>
                 </div>
@@ -286,7 +291,6 @@
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script>
         $(document).ready(function () {
-            // $("#mycarousel").text("The DOM is now loaded and can be manipulated.");
             $("#mycarousel").carousel({ interval: 2000 });
             $("#carouselButton").click(function () {
                 if ($('#carouselButton').children('span').hasClass('fa-pause')) {
@@ -300,9 +304,14 @@
                     $('#carouselButton').children('span').addClass('fa-pause');
                 }
             });
+            $('#ReserveTableButton').click(function () {
+                 $('#ReserveModal').modal('show')         
+            });
+            $('#LoginLink').click(function () {
+                 $('#loginModal').modal('show')         
+            });
         });
     </script>
 </body>
-
 
 </html>
